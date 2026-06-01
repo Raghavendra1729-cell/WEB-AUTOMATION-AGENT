@@ -1,0 +1,3 @@
+# This file keeps the screenshots/ directory tracked by git.
+# The actual PNG screenshots are gitignored (they're runtime artifacts).
+# The agent saves step_001.png, step_002.png, etc. here during a run.
