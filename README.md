@@ -173,15 +173,7 @@ playwright install chromium
 
 ---
 
-## 📚 Documentation
 
-| Document | Description |
-|----------|-------------|
-| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | System architecture, data flow, design decisions |
-| [docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md) | Beginner-friendly walkthrough with examples |
-| [docs/TOOLS_REFERENCE.md](docs/TOOLS_REFERENCE.md) | Complete reference for all 7 agent tools |
-
----
 
 ## 💡 Key Design Highlights
 
