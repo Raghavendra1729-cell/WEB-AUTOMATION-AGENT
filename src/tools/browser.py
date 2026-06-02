@@ -24,6 +24,7 @@ async def open_browser() -> str:
         async def on_page(new_page):
             logger.info("New tab detected! Switching agent focus to new tab.")
             await new_page.bring_to_front()
+            await new_page.wait_for_load_state("domcontentloaded")
             state.page = new_page
             
         state.browser.contexts[0].on("page", on_page)

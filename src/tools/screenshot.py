@@ -6,6 +6,7 @@ Screenshot capture and compression for the Web Automation Agent.
 
 import base64
 import io
+import os
 from PIL import Image
 
 from src.tools.state import state
@@ -22,10 +23,12 @@ async def take_screenshot() -> str:
     state.step_count += 1
     filename = f"screenshots/step_{state.step_count:03d}.png"
     
+    os.makedirs('screenshots', exist_ok=True)
     png_bytes = await state.page.screenshot(path=filename)
     logger.info(f"Screenshot saved to {filename}")
     
     img = Image.open(io.BytesIO(png_bytes))
+    img = img.resize((640, 360))
     buffer = io.BytesIO()
     img.save(buffer, format="JPEG", quality=50)
     

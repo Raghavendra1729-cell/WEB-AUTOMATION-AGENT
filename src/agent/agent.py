@@ -4,6 +4,7 @@ Core agent loop for the Web Automation Agent.
 
 import json
 import re
+import asyncio
 from openai import AsyncOpenAI
 
 from src.agent.prompt import SYSTEM_PROMPT
@@ -59,7 +60,6 @@ def extract_json(content: str) -> dict:
     match = re.search(r"\{.*\}", content, re.DOTALL)
     if match:
         raw = match.group(0)
-        raw = re.sub(r':\s*(\d+)\]', r': \1}', raw)
         try:
             return json.loads(raw)
         except json.JSONDecodeError as e:
@@ -154,7 +154,7 @@ async def run_agent(task: str, start_url: str) -> None:
             })
 
             response = None
-            import asyncio
+
             for retry in range(3):
                 try:
                     response = await client.chat.completions.create(
