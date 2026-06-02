@@ -199,14 +199,4 @@ Tools return error strings instead of raising exceptions. The AI sees errors in 
 
 ---
 
-## 🔒 Security Notes
 
-- **Never commit `.env`** — it's in `.gitignore`
-- Your `HF_API_TOKEN` stays on your machine and is only sent to HuggingFace's servers
-- The agent runs in a real browser; be careful running it against sites you don't control
-
----
-
-## 📝 License
-
-MIT License — see `LICENSE` for details.
